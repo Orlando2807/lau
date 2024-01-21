@@ -1,0 +1,19 @@
+body{
+    background-color: #006666;
+    width: 0 auto;
+    height: 100%;
+
+}
+.container{
+    color: black;
+    max-width: inherit;
+ 
+}
+
+.navbar{
+    padding: 17px;
+    height: 80px;
+    background-color: ;
+    font-size: 25px;
+    justify-content: center;
+}

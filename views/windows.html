@@ -1,0 +1,114 @@
+
+<link rel="stylesheet" href="estilo.css">
+   <style type="text/css">
+<!--
+.Estilo1 {font-size: 18px}
+.Estilo3 {color: #000000; font-size: 14px; }
+.Estilo4 {color: #000000}
+-->
+   </style>
+   <div class="container">
+    <div class="row">
+        <form name="newWindowForm" role="form">
+            <div class="row">
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label class="control-label Estilo1">Nombre de la Ventana </label>
+                        <input type="text" class="form-control" placeholder="Codigo de la Ventana" ng-model="newWindowProperties.name" required>
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label class="control-label Estilo1">Ancho</label>
+                        <input type="text" class="form-control" placeholder="Ancho de la Ventana" ng-model="newWindowProperties.width" required input-number>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label class="control-label Estilo1">Alto</label>
+                        <input type="text" class="form-control" placeholder="Alto de la Ventana" ng-model="newWindowProperties.height" required input-number>
+                    </div>
+                    
+                    <div class="form-group col-md-3">
+                        <label class="control-label Estilo1">Holgura Pared - Ventana </label>
+                        <input type="text" class="form-control" placeholder="Holgura de Pared" ng-model="newWindowProperties.wallLoss" required input-number>
+                    </div>
+                    
+                    <div class="col-md-12 has-error">
+                        <label class="control-label">{{error}}</label>
+                    </div>
+                    
+                    <div class=" col-md-3">
+                        <label class="control-label Estilo1">Cantidad de Hojas</label>
+                        <select class="selectpicker btn btn-primary btn-lg" style =BackGround-color:Gray;" ng-model="newWindowProperties.numberFrames">
+                            <option ng-repeat="numberFrame in numberFrames">{{numberFrame}}</option>
+                        </select>
+
+                    </div>
+
+                    <div class=" col-md-3">
+                        <label class="control-label Estilo1">Serie</label>
+                        <select class="selectpicker btn btn-primary btn-lg" style =BackGround-color:Gray;" ng-model="newWindowProperties.line">
+                            <option ng-repeat="line in lines">{{line}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                </br>
+                
+            </div>
+    
+            <div class="row">
+                </br>
+        
+                <div class="form-row">
+                    <div data-ot="Agregar ventana" data-ot-delay="1" class="col-md-3">
+                        <button type="submit" class="btn btn-success btn-md" ng-click="addNewWindow()" ng-disabled="newWindowForm.$invalid">    <span class="Estilo3">Generar Ventana</span></button>
+                    </div>
+
+                    <div data-ot="Selecciona para eliminar " data-ot-delay="1" class="col-md-3">
+                        <button class="btn btn-success btn-md" ng-click="removeWindow()">    <span class="Estilo3">Eliminar Ventana</span></button>
+                    </div>
+
+                    <div data-ot="Ver optimizacion de cortes" data-ot-delay="1" class="col-md-2">
+                        <a ng-href="#/calculator/windowMode" class="btn btn-success btn-md" ng-click="saveData()">    <span class="Estilo1"> Optimizar Barras</span></a>                    </div>
+                    
+                    <div data-ot="Ver dimensiones de los vidrios" data-ot-delay="1" class="col-md-2">
+                        <a ng-href="#/glasses" class="btn btn-success btn-md" ng-click="saveData()">    <span class="Estilo1">Lista de Vidrios</span></a>                    </div>
+            </div>
+        </form>
+    </div>
+    
+    </br>
+
+    <div>
+        <label><span class="Estilo1">Datos de Corte :</span> {{equation}}</label>
+    </div>
+
+    </br>
+
+    <div class="row">        
+        <div class="col-xs-12 col-md-12 col-lg-12 ">
+            <div ag-grid="gridOptions" class="ag-fresh gridStyle"></div>
+        </div>
+    </div>
+
+    </br>
+
+    <div class="row">
+        <h3>Configuracion de Barras</h3>
+        
+        <div data-ot="Agrega una fila vacia a la tabla de longitudes para especificar longitudes de barras diferentes a las por defecto" 
+             data-ot-delay="1" class="col-md-3">
+            <button class="btn btn-success btn-lg" ng-click="addNewConfiguration()">    <span class="Estilo4">Agregar Trozos </span></button>
+        </div>
+    </div>
+
+    </br>
+    
+    <div class="row">        
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <div ag-grid="configGridOptions" class="ag-fresh configurationGridStyle"></div>
+        </div>
+    </div>
+    
+    <script src="lib/opentip.min.js"></script>
+</div>

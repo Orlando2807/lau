@@ -1,0 +1,12 @@
+body{
+    background-color: red;
+}
+.form-row{
+    width: 2800px;
+    max-width: inherit;
+}
+.row{
+    width: 1800px;
+    justify-content: center;
+    max-width: inherit;
+}
